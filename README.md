@@ -111,7 +111,7 @@ Total/Used disk
 
 ![image](https://github.com/user-attachments/assets/d1f5c61e-d249-4fc2-8e4a-ff4c9d1ab39f)
 
-с помощью stress testa проверил 
+с помощью stress testa проверил работу оповещения 
 
 ![image](https://github.com/user-attachments/assets/56ebebbe-bfd9-413f-8328-122761093518)
 
