@@ -87,5 +87,27 @@
 
 ## Задание 2
 
+cpu unilization
+
+![image](https://github.com/user-attachments/assets/2d897e32-24bf-47e9-9f90-93037f4c8af7)
+
+
+Memory
+
+![image](https://github.com/user-attachments/assets/e29713d4-89e0-448f-b09b-703c70f9c872)
+
+CPU Load Average
+
+![image](https://github.com/user-attachments/assets/abf91a11-e4aa-4690-9a94-692db6bb9e4e)
+
+Total/Used disk
+
+![image](https://github.com/user-attachments/assets/ae4b5158-93dd-4baa-a4bd-72013f88c60a)
+
+![image](https://github.com/user-attachments/assets/b605074b-cae5-43a1-a2bb-ee3279eb34bb)
+
+
+
+
 
 
