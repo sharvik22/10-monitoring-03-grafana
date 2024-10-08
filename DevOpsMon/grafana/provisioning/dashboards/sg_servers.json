@@ -1,0 +1,1828 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 14,
+    "links": [],
+    "panels": [
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 6,
+        "panels": [],
+        "title": "HV",
+        "type": "row"
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "E",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "G",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  0.95
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "H",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "handler": 1,
+          "name": "Загруженость диска HV C",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "zw-NPWPGz"
+            }
+          ]
+        },
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 1
+        },
+        "hiddenSeries": false,
+        "id": 8,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null as zero",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 1,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.55:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.55:9182\",volume=~\"C:\"})) ",
+            "interval": "",
+            "legendFormat": "Disk C 58.55",
+            "refId": "A"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.35:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.35:9182\",volume=~\"C:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk C 58.35",
+            "refId": "B"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.45:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.45:9182\",volume=~\"C:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk C 58.45",
+            "refId": "C"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.30:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.30:9182\",volume=~\"C:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk C 58.30",
+            "refId": "D"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.20:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.20:9182\",volume=~\"C:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk C 58.20",
+            "refId": "E"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"10.10.158.2:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"10.10.158.2:9182\",volume=~\"C:\"})) ",
+            "hide": true,
+            "interval": "",
+            "legendFormat": "Disk C 158.2",
+            "refId": "F"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"10.10.160.2:9182\",volume=~\"C:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"10.10.160.2:9182\",volume=~\"C:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk C 160.2",
+            "refId": "G"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.55:9182\",volume=~\"D:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.55:9182\",volume=~\"D:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk D 58.55",
+            "refId": "H"
+          },
+          {
+            "expr": "1 - (sum(wmi_logical_disk_free_bytes{instance=~\"192.168.58.35:9182\",volume=~\"D:\"}) / sum(wmi_logical_disk_size_bytes{instance=~\"192.168.58.35:9182\",volume=~\"D:\"})) ",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Disk D 58.35",
+            "refId": "I"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "fill": true,
+            "line": true,
+            "op": "gt",
+            "value": 0.9,
+            "visible": true
+          }
+        ],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Disk Use",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:209",
+            "format": "percentunit",
+            "label": null,
+            "logBase": 1,
+            "max": "1",
+            "min": "0",
+            "show": true
+          },
+          {
+            "$$hashKey": "object:210",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  95
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  95
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "E",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  95
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "G",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "handler": 1,
+          "message": "",
+          "name": "Загрузка памяти HV",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "zw-NPWPGz"
+            }
+          ]
+        },
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 1
+        },
+        "hiddenSeries": false,
+        "id": 10,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"192.168.58.55:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"192.168.58.55:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"192.168.58.55:9182\"}",
+            "interval": "",
+            "legendFormat": "Memory Load 58.55",
+            "refId": "A"
+          },
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"192.168.58.35:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"192.168.58.35:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"192.168.58.35:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Memory Load 58.35",
+            "refId": "B"
+          },
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"192.168.58.45:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"192.168.58.45:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"192.168.58.45:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Memory Load 58.45",
+            "refId": "C"
+          },
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"192.168.58.30:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"192.168.58.30:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"192.168.58.30:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Memory Load 58.30",
+            "refId": "D"
+          },
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"192.168.58.20:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"192.168.58.20:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"192.168.58.20:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Memory Load 58.20",
+            "refId": "E"
+          },
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"10.10.158.2:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"10.10.158.2:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"10.10.158.2:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Memory Load 158.2",
+            "refId": "F"
+          },
+          {
+            "expr": "((wmi_cs_physical_memory_bytes{instance=~\"10.10.160.2:9182\"} - wmi_os_physical_memory_free_bytes{instance=~\"10.10.160.2:9182\"}) * 100)/ wmi_cs_physical_memory_bytes{instance=~\"10.10.160.2:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Memory Load 160.2",
+            "refId": "G"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "fill": true,
+            "line": true,
+            "op": "gt",
+            "value": 95,
+            "visible": true
+          }
+        ],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Memory Load",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:70",
+            "format": "percent",
+            "label": null,
+            "logBase": 1,
+            "max": "100",
+            "min": "0",
+            "show": true
+          },
+          {
+            "$$hashKey": "object:71",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  80
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  80
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "E",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  80
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "G",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "handler": 1,
+          "message": "Большая нагрузка на CPU  HV сервера 55",
+          "name": "Загрузка CPU HV",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "zw-NPWPGz"
+            }
+          ]
+        },
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "percentunit"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 9
+        },
+        "hiddenSeries": false,
+        "id": 12,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"192.168.58.55:9182\",mode=\"idle\"}[5m])) > 0",
+            "interval": "",
+            "legendFormat": "CPU 58.55",
+            "refId": "A"
+          },
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"192.168.58.35:9182\",mode=\"idle\"}[5m])) > 0",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "CPU 58.35",
+            "refId": "B"
+          },
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"192.168.58.45:9182\",mode=\"idle\"}[5m])) > 0",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "CPU 58.45",
+            "refId": "C"
+          },
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"192.168.58.30:9182\",mode=\"idle\"}[5m])) > 0",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "CPU 58.30",
+            "refId": "D"
+          },
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"192.168.58.20:9182\",mode=\"idle\"}[5m])) > 0",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "CPU 58.20",
+            "refId": "E"
+          },
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"10.10.158.2:9182\",mode=\"idle\"}[5m])) > 0",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "CPU 158.2",
+            "refId": "F"
+          },
+          {
+            "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"10.10.160.2:9182\",mode=\"idle\"}[5m])) > 0",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "CPU 160.2",
+            "refId": "G"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "fill": true,
+            "line": true,
+            "op": "gt",
+            "value": 80,
+            "visible": true
+          }
+        ],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "CPU",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:811",
+            "format": "percentunit",
+            "label": null,
+            "logBase": 1,
+            "max": "1",
+            "min": "0",
+            "show": true
+          },
+          {
+            "$$hashKey": "object:812",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "lt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "lt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "E",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "lt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "F",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  0.9
+                ],
+                "type": "lt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "G",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "handler": 1,
+          "message": "",
+          "name": "UP state HV alert",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "zw-NPWPGz"
+            }
+          ]
+        },
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {}
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "up{env=\"prod\", instance=\"192.168.58.55:9182\", job=\"sg-servers\", service=\"wmi_exporter\"}"
+              },
+              "properties": [
+                {
+                  "id": "unit"
+                }
+              ]
+            }
+          ]
+        },
+        "fill": 0,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 9
+        },
+        "hiddenSeries": false,
+        "id": 14,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "up{instance=\"192.168.58.55:9182\"}",
+            "interval": "",
+            "legendFormat": "Status 58.55",
+            "refId": "A"
+          },
+          {
+            "expr": "up{instance=\"192.168.58.35:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Status 58.35",
+            "refId": "B"
+          },
+          {
+            "expr": "up{instance=\"192.168.58.45:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Status 58.45",
+            "refId": "C"
+          },
+          {
+            "expr": "up{instance=\"192.168.58.30:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Status 58.30",
+            "refId": "D"
+          },
+          {
+            "expr": "up{instance=\"192.168.58.20:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Status 58.20",
+            "refId": "E"
+          },
+          {
+            "expr": "up{instance=\"10.10.158.2:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Status 158.2",
+            "refId": "F"
+          },
+          {
+            "expr": "up{instance=\"10.10.160.2:9182\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "Status 160.2",
+            "refId": "G"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "fill": true,
+            "line": true,
+            "op": "lt",
+            "value": 0.9,
+            "visible": true
+          }
+        ],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UP state HV",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:426",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": "1",
+            "min": "0",
+            "show": true
+          },
+          {
+            "$$hashKey": "object:427",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "collapsed": false,
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 17
+        },
+        "id": 2,
+        "panels": [],
+        "title": "UPS",
+        "type": "row"
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  180
+                ],
+                "type": "lt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "10s",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  180
+                ],
+                "type": "lt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "B",
+                  "10s",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "10s",
+          "frequency": "1m",
+          "handler": 1,
+          "name": "UPS Server input voltage alert",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "zw-NPWPGz"
+            }
+          ]
+        },
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "volt"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 18
+        },
+        "hiddenSeries": false,
+        "id": 16,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "ups_input_voltage{name=\"USB/ON-LINE_R420F5J00024\"}",
+            "interval": "",
+            "legendFormat": "UPS2(Нижний)",
+            "refId": "A"
+          },
+          {
+            "expr": "ups_input_voltage{name=\"USB/ON-LINE_R420G9V00075\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "UPS1(Верхний)",
+            "refId": "B"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "fill": true,
+            "line": true,
+            "op": "lt",
+            "value": 180,
+            "visible": true
+          }
+        ],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS Server input voltage",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:96",
+            "format": "volt",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:97",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "volt"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 18
+        },
+        "hiddenSeries": false,
+        "id": 18,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "ups_output_voltage",
+            "interval": "",
+            "legendFormat": "{{name}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS Server output voltage",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:349",
+            "format": "volt",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:350",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "alert": {
+          "alertRuleTags": {},
+          "conditions": [
+            {
+              "evaluator": {
+                "params": [
+                  50
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "and"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            },
+            {
+              "evaluator": {
+                "params": [
+                  50
+                ],
+                "type": "gt"
+              },
+              "operator": {
+                "type": "or"
+              },
+              "query": {
+                "params": [
+                  "A",
+                  "5m",
+                  "now"
+                ]
+              },
+              "reducer": {
+                "params": [],
+                "type": "last"
+              },
+              "type": "query"
+            }
+          ],
+          "executionErrorState": "alerting",
+          "for": "5m",
+          "frequency": "1m",
+          "handler": 1,
+          "name": "UPS Temp alert",
+          "noDataState": "no_data",
+          "notifications": [
+            {
+              "uid": "zw-NPWPGz"
+            }
+          ]
+        },
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "celsius"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 26
+        },
+        "hiddenSeries": false,
+        "id": 20,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "ups_temp{name=\"USB/ON-LINE_R420F5J00024\"}",
+            "interval": "",
+            "legendFormat": "UPS2(Нижний)",
+            "refId": "A"
+          },
+          {
+            "expr": "ups_temp{name=\"USB/ON-LINE_R420G9V00075\"}",
+            "hide": false,
+            "interval": "",
+            "legendFormat": "UPS1(Верхний)",
+            "refId": "B"
+          }
+        ],
+        "thresholds": [
+          {
+            "colorMode": "critical",
+            "fill": true,
+            "line": true,
+            "op": "gt",
+            "value": 50,
+            "visible": true
+          }
+        ],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS Temp",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:264",
+            "format": "celsius",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:265",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "volt"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 26
+        },
+        "hiddenSeries": false,
+        "id": 22,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "ups_battery_voltage",
+            "interval": "",
+            "legendFormat": "{{name}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Battery voltage",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "volt",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "dtdurations"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 34
+        },
+        "hiddenSeries": false,
+        "id": 24,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "ups_battery_time_remaining",
+            "interval": "",
+            "legendFormat": "{{name}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS Time remaining",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "dtdurations",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {},
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 34
+        },
+        "hiddenSeries": false,
+        "id": 25,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.4.0",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "ups_battery_capacity",
+            "interval": "",
+            "legendFormat": "{{name}}",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "UPS Battery capasity",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:1852",
+            "format": "percent",
+            "label": null,
+            "logBase": 1,
+            "max": "100",
+            "min": null,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:1853",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 42
+        },
+        "id": 4,
+        "title": "AD",
+        "type": "row"
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 27,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "State server for alerts",
+    "uid": "dPI1BWPMk",
+    "version": 66
+  }
