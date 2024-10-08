@@ -107,7 +107,12 @@ Total/Used disk
 ![image](https://github.com/user-attachments/assets/b605074b-cae5-43a1-a2bb-ee3279eb34bb)
 
 
+## Задание 3
 
+
+
+
+## Задание 4
 
 
 
