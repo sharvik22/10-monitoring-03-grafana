@@ -72,6 +72,8 @@
 - prometheus-server;
 - prometheus node-exporter;
 
+![Screenshot_7](https://github.com/user-attachments/assets/05dcbc59-14db-4646-9fd3-3b16f1063cf4)
+
 ![image](https://github.com/user-attachments/assets/35d4605e-5059-4644-b0e7-080c63940868)
 
 ![Screenshot_1](https://github.com/user-attachments/assets/fedd108d-a1f5-4c42-b6c5-81d61a5abe63)
@@ -82,6 +84,8 @@
 
 ![Screenshot_4](https://github.com/user-attachments/assets/f5327fa7-564e-4fb6-8cde-e5a7b205b1cc)
 
-![Screenshot_7](https://github.com/user-attachments/assets/05dcbc59-14db-4646-9fd3-3b16f1063cf4)
+
+
+
 
 
