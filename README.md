@@ -121,5 +121,5 @@ Total/Used disk
 
 ## Задание 4
 
-[netology.json](https://github.com/sharvik22/10-monitoring-03-grafana.git/netology.json)
+[netology.json](https://github.com/sharvik22/10-monitoring-03-grafana.git/)
 
